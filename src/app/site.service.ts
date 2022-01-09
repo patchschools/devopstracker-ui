@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,10 @@ import { Injectable } from '@angular/core';
 })
 export class SiteService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  getSites(){
+    const url ="https://devopstracker-api.herokuapp.com/api/v1/sites";
+    return this.http.get(url);
+  }
 }
