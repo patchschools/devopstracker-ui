@@ -19,13 +19,13 @@ var LoginComponent = /** @class */ (function () {
     LoginComponent.prototype.ngOnInit = function () {
     };
     LoginComponent.prototype.login = function () {
-        var _this = this;
         this.authService.login(this.user).subscribe(function (res) {
             var user = res;
             if (res != null) {
                 localStorage.setItem("LOGGED_IN_USER", JSON.stringify(user));
                 alert("Successfully LoggedIn.");
-                _this.router.navigateByUrl("/sites");
+                // this.router.navigateByUrl("/sites");
+                window.location.href = "/sites";
             }
             else {
                 alert("Invalid Login Credentials");

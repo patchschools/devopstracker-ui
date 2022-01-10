@@ -24,7 +24,8 @@ export class LoginComponent implements OnInit {
       if(res != null){
         localStorage.setItem("LOGGED_IN_USER", JSON.stringify(user));
         alert("Successfully LoggedIn.");
-        this.router.navigateByUrl("/sites");
+        // this.router.navigateByUrl("/sites");
+        window.location.href="/sites";
       }
       else{
         alert("Invalid Login Credentials");

@@ -12,9 +12,15 @@ var SiteService = /** @class */ (function () {
     function SiteService(http) {
         this.http = http;
     }
-    SiteService.prototype.getSites = function () {
+    SiteService.prototype.getSites1 = function () {
         var url = "https://devopstracker-api.herokuapp.com/api/v1/sites";
         return this.http.get(url);
+    };
+    SiteService.prototype.getSites = function () {
+        var token = "HzddrpzLRYYHGHh1Ohxkxr2bUGArcCvDYveRoS5A7K2esAJufMGmRzcRc7DCXsyC";
+        var url = "https://data.mongodb-api.com/app/data-pyska/endpoint/data/beta/find";
+        var data = { "collection": "courses", "database": "coursetracker_db", "dataSource": "projecttracker" };
+        return this.http.post(url, data, { headers: { "api-key": token } });
     };
     SiteService = __decorate([
         core_1.Injectable({

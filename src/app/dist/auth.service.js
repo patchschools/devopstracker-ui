@@ -13,12 +13,17 @@ var AuthService = /** @class */ (function () {
         this.http = http;
     }
     AuthService.prototype.register = function (user) {
-        var url = 'https://authenticationapp-api.herokuapp.com/api/v1/auth/registration';
+        var url = 'https://authenticationapp-api.herokuapp.com/api/v1/auth/register';
         return this.http.post(url, user);
     };
     AuthService.prototype.login = function (user) {
         var url = 'https://authenticationapp-api.herokuapp.com/api/v1/auth/login';
         return this.http.post(url, user);
+    };
+    AuthService.prototype.getUser = function () {
+        var userStr = localStorage.getItem("LOGGED_IN_USER");
+        var user = userStr ? JSON.parse(userStr) : null;
+        return user;
     };
     AuthService = __decorate([
         core_1.Injectable({
